@@ -10,6 +10,7 @@ import org.launchcode.javawebdevtechjobsmvc.models.JobData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by LaunchCode
@@ -20,6 +21,7 @@ public class ListController {
 
     static HashMap<String, String> columnChoices = new HashMap<>();
     static HashMap<String, Object> tableChoices = new HashMap<>();
+    static List<String> props = new ArrayList<>();
 
     public ListController () {
         columnChoices.put("all", "All");
@@ -33,6 +35,11 @@ public class ListController {
         tableChoices.put("location", JobData.getAllLocations());
         tableChoices.put("positionType", JobData.getAllPositionTypes());
         tableChoices.put("coreCompetency", JobData.getAllCoreCompetency());
+
+        props.add("employer");
+        props.add("location");
+        props.add("positionType");
+        props.add("coreCompetency");
     }
 
     @RequestMapping(value = "")
@@ -59,6 +66,7 @@ public class ListController {
             model.addAttribute("title", "Jobs with " + columnChoices.get(column) + ": " + value);
         }
         model.addAttribute("jobs", jobs);
+        model.addAttribute("props", props);
 
         return "list-jobs";
     }

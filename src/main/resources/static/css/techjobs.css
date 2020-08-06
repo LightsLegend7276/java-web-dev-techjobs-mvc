@@ -30,10 +30,12 @@ table.job-listing {
 }
 
 table.job-listing td:first-child {
+    font-family: "Comic Sans MS";
     font-weight: bold;
 }
 
 table.job-listing td:last-child {
+    color: blue;
     width: 80%;
 }
 
