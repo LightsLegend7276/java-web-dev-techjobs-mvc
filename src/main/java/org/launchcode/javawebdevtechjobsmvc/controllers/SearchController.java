@@ -4,16 +4,11 @@ import org.launchcode.javawebdevtechjobsmvc.models.Job;
 import org.launchcode.javawebdevtechjobsmvc.models.JobData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
-import static org.launchcode.javawebdevtechjobsmvc.controllers.ListController.columnChoices;
 import static org.launchcode.javawebdevtechjobsmvc.controllers.ListController.props;
 
 /**
@@ -21,7 +16,7 @@ import static org.launchcode.javawebdevtechjobsmvc.controllers.ListController.pr
  */
 @Controller
 @RequestMapping("search")
-public class SearchController {
+public class SearchController extends TechJobsController {
 
     @RequestMapping(value = "")
     public String search(Model model, @RequestParam(value = "searchType", required = false) String searchType) {
@@ -53,11 +48,5 @@ public class SearchController {
         return "search";
     }
 
-//    @GetMapping(value = "redirect")
-//    public String getNewSearchResults(RedirectAttributes model, @RequestParam String searchType, @RequestParam String searchTerm) {
-//        model.addFlashAttribute("searchType", searchType);
-//        model.addFlashAttribute("searchTerm", searchTerm);
-//        return "redirect:results";
-//    }
 
 }
