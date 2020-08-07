@@ -29,8 +29,6 @@ public class SearchController extends TechJobsController {
         return "search";
     }
 
-    // TODO #3 - Create a handler to process a search request and render the updated search view.
-
     @RequestMapping(value = "results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
         ArrayList<Job> jobs;
@@ -43,7 +41,6 @@ public class SearchController extends TechJobsController {
         model.addAttribute("jobs", jobs);
         model.addAttribute("searchType", searchType);
         model.addAttribute("props", props);
-
 
         return "search";
     }

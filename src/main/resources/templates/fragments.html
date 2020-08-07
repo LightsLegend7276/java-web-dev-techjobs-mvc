@@ -28,5 +28,23 @@
         </div>
     </div>
 
+    <table th:fragment="jobTable" class="job-listing" th:each="job : ${jobs}">
+        <tr>
+            <td>Id</td>
+            <td th:text="${job.id}"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td th:text="${job.name}"></td>
+        </tr>
+        <tr th:each="prop : ${props}">
+            <td th:text="${#strings.capitalize(prop)}"></td>
+            <td>
+                <a th:href="@{/search/results(searchType=${prop},searchTerm=${job[prop]})}" th:text="${job[prop]}"></a>
+            </td>
+        </tr>
+    </table>
+
+
 </body>
 </html>
